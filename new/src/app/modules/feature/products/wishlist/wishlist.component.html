@@ -1,0 +1,91 @@
+<app-inner-header></app-inner-header>
+<app-common-banner [breadcrumbs]="breadcrumbs"></app-common-banner>
+
+<section class="wishlist-page section">
+	<div class="container">
+		<div class="row justify-content-center align-items-center text-center flex-column">
+			<div class="col-8">
+				<h2>SAVE YOUR FAVOURITE ITEMS</h2>
+				<h6>Want to save the items that you love? <span class="d-block">Just click on the heart symbol beside the item and it will show up here.</span></h6>
+			</div>
+			<div class="col-3">
+				<app-custom-button btnClasses="btn btn-primary w-100" btnTitle="Browse now"></app-custom-button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section wishlist-content">
+	<div class="container">
+		<div class="row justify-content-end">
+			<div class="col-12">
+				<div class="select-view pl-4 justify-content-end">
+				        <mat-button-toggle-group [value]="toggleSelect" (change)="onValChange($event.value)">
+						  <mat-button-toggle value="grid">
+						    <mat-icon class="icon-grid"></mat-icon>
+						  </mat-button-toggle>
+						  <mat-button-toggle value="list">
+						    <mat-icon class="icon-list"></mat-icon>
+						  </mat-button-toggle>
+						</mat-button-toggle-group>
+					</div>
+			</div>
+		</div>
+
+		<div class="row mt-4">
+			<div class="col-12">
+				<ng-container *ngIf="!grid">
+					<div class="row">
+						<div class="col-6 mb-4" *ngFor="let product of products">
+							<div class="card bordered-long-card wishlist-card">
+								<div class="row new-margin2 align-items-center">
+									<div class="col-auto new-padding2">
+										<div class="card-img">
+											<img [src]="product.imgURL" alt="">
+										</div>
+									</div>
+									<div class="col new-padding2">
+										<div class="card-content">
+											<h3>{{ product.title }}</h3>
+											<div class="item-details">
+												<h3>Item: {{ product.item }}</h3>
+									            <h3>Size: {{ product.size }} cm</h3>
+									            <h3 class="d-flex price-detailing align-items-center mb-4">
+									              <span>Price: <s>&#8377;{{ product.price }}</s> <ins>&#8377;{{ product.disPrice }}</ins> </span>
+									              <app-custom-select [data]="quantityTypeList" formControlName="quantityType" bindLabel="label" bindValue="value" placeholder="Qty: 1" appendTo=".price-detailing" customClass="quantity ml-3"></app-custom-select>
+									            </h3>
+											</div>
+											<app-custom-button btnClasses="btn btn-primary w-75" btnTitle="Add To Cart" (click)="navigateCart()"></app-custom-button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</ng-container>
+
+				<ng-container *ngIf="grid">
+					<div class="row">
+						<div class="col-3 mb-4" *ngFor="let product of products">
+							<div class="card bordered-long-card wishlist-card">
+								<div class="card-img mb-2">
+									<img [src]="product.imgURL" alt="" class="w-100">
+								</div>
+								<div class="card-content p-2">
+									<h3>{{ product.title }}</h3>
+									<div class="item-details">
+										<h3 class="d-flex price-detailing align-items-center mb-4">
+									        <span><s>&#8377;{{ product.price }}</s> <ins>&#8377;{{ product.disPrice }}</ins> </span>
+									        <app-custom-select [data]="quantityTypeList" formControlName="quantityType" bindLabel="label" bindValue="value" placeholder="Qty: 1" appendTo=".price-detailing" customClass="quantity ml-3"></app-custom-select>
+									    </h3>
+									</div>
+									<app-custom-button btnClasses="btn btn-primary w-100" btnTitle="Add To Cart" (click)="navigateCart()"></app-custom-button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</ng-container>
+			</div>
+		</div>
+	</div>
+</section>

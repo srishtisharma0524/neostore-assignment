@@ -1,0 +1,165 @@
+<app-inner-header></app-inner-header>
+<app-common-banner [breadcrumbs]="breadcrumbs"></app-common-banner>
+
+<section class="section">
+	
+</section>
+
+<section class="section cart-section">
+	<div class="container">
+		<div class="row new-margin justify-content-end">
+			<div class="col-12 new-padding">
+				<div class="steps">
+					<ul class="list-unstyled">
+						<li class="active">
+							<div class="step-icon">
+								<!-- <span class="icon-address-icon icons"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span></span> -->
+								<img src="../../../../../assets/images/address-icon.svg" alt="" *ngIf="!active">
+								<img src="../../../../../assets/images/address-icon-disabled.svg" alt="" *ngIf="active">
+							</div>
+							<a href="">Address</a>
+						</li>
+
+						<li>
+							<div class="step-icon">
+								<!-- <img src="../../../../../assets/images/shipping-icon.svg" alt="" *ngIf="!active">
+								<img src="../../../../../assets/images/shipping-icon-disabled.svg" alt="" *ngIf="active"> -->
+								<img src="../../../../../assets/images/shipping-icon-disabled.svg" alt="">
+							</div>
+							<a href="">Shipping</a>
+						</li>
+
+						<li>
+							<div class="step-icon">
+								<!-- <img src="../../../../../assets/images/billing-icon.svg" alt="" *ngIf="!active">
+								<img src="../../../../../assets/images/billing-icon-disabled.svg" alt="" *ngIf="active"> -->
+								<img src="../../../../../assets/images/billing-icon-disabled.svg" alt="">
+							</div>
+							<a href="">Billing</a>
+						</li>
+
+						<li>
+							<div class="step-icon">
+								<!-- <img src="../../../../../assets/images/payment-icon.svg" alt="" *ngIf="!active">
+								<img src="../../../../../assets/images/payment-icon-disabled.svg" alt="" *ngIf="active"> -->
+								<img src="../../../../../assets/images/payment-icon-disabled.svg" alt="">
+							</div>
+							<a href="">Payment</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row new-margin mt-4">
+			<div class="col-8 new-padding">
+				<!-- <mat-horizontal-stepper [linear]="isLinear" #stepper>
+				  <mat-step [stepControl]="firstFormGroup">
+				    <form [formGroup]="firstFormGroup">
+				      <ng-template matStepLabel>Fill out your name</ng-template>
+				      <mat-form-field>
+				        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+				      </mat-form-field>
+				      <div>
+				        <button mat-button matStepperNext>Next</button>
+				      </div>
+				    </form>
+				  </mat-step>
+				  <mat-step [stepControl]="secondFormGroup">
+				    <form [formGroup]="secondFormGroup">
+				      <ng-template matStepLabel>Fill out your address</ng-template>
+				      <mat-form-field>
+				        <input matInput placeholder="Address" formControlName="secondCtrl" required>
+				      </mat-form-field>
+				      <div>
+				        <button mat-button matStepperPrevious>Back</button>
+				        <button mat-button matStepperNext>Next</button>
+				      </div>
+				    </form>
+				  </mat-step>
+				  <mat-step>
+				    <ng-template matStepLabel>Done</ng-template>
+				    You are now done.
+				    <div>
+				      <button mat-button matStepperPrevious>Back</button>
+				      <button mat-button (click)="stepper.reset()">Reset</button>
+				    </div>
+				  </mat-step>
+				</mat-horizontal-stepper> -->
+				<div class="checkout-box mb-4">
+					<h3>1. Shipping address</h3>
+					<form>
+						<div class="row mt-3 new-margin">
+							<div class="col-6 new-padding mb-4">
+								<app-custom-input type="text" placeholders="Enter full name"></app-custom-input>
+							</div>
+							<div class="col-6 new-padding mb-4">
+								<app-custom-input type="number" placeholders="Enter Phone no"></app-custom-input>
+							</div>
+							<div class="col-12 new-padding mb-4">
+								<app-custom-input type="text" placeholders="Enter Address line 1"></app-custom-input>
+							</div>
+							<div class="col-6 new-padding mb-4">
+								<app-custom-input type="text" placeholders="Enter Landmark"></app-custom-input>
+							</div>
+							<div class="col-6 new-padding mb-4">
+								<app-custom-input type="number" placeholders="Enter Pincode"></app-custom-input>
+							</div>
+							<div class="col-6 new-padding mb-4">
+								<app-custom-input type="text" placeholders="Enter City"></app-custom-input>
+							</div>
+							<div class="col-6 new-padding mb-4">
+								<app-custom-input type="text" placeholders="Enter State"></app-custom-input>
+							</div>
+						</div>
+					</form>
+
+					<div class="row justify-content-end">
+						<div class="col-auto">
+							<app-custom-button btnClasses="locate-icon" btnTitle="Locate on map"></app-custom-button>
+						</div>
+					</div>
+					
+				</div>
+				<div class="checkout-box disabled-box mb-4">
+					<h3>2. Shipping Method</h3>
+				</div>
+				<div class="checkout-box disabled-box mb-4">
+					<h3>3. Billing address</h3>
+				</div>
+				<div class="checkout-box disabled-box mb-4">
+					<h3>4. Payment</h3>
+				</div>
+			</div>
+			<div class="col-4 new-padding">
+				<app-order-summary [visible]="visible"></app-order-summary>
+			</div>
+		</div>
+		
+	</div>
+</section>
+
+<section class="section trending-section pt-5 mt-5 mb-5 pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="page-title">
+          <h2>You might also like</h2>
+          <h3>From glam vibes to laid-back comfort, these sofas all have one thing in common—and that’s amazing value.</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5 pt-2">
+      <div class="col" *ngFor="let trend of trending">
+        <div class="trending-images">
+          <a href="#">
+            <img [src]="trend.imgUrl" class="img-fluid" alt="">
+          </a>
+        </div>
+        <div class="trending-text">
+          <a href="#">{{ trend.title }}</a>
+          <span class="price">&#8377; {{ trend.price }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

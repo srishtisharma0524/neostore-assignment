@@ -1,0 +1,4 @@
+<button [type]="btnType" class="btn" [ngClass]="btnClasses" (click)="handleClick($event)">
+	<span *ngIf="btnIcon !== ''" [ngClass]="btnIcon"></span>
+    <span [ngClass]="{'btn-title': btnIcon}" *ngIf="btnTitle !== ''">{{btnTitle}}</span>
+</button>

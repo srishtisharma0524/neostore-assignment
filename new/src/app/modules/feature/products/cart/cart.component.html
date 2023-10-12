@@ -1,0 +1,105 @@
+<app-inner-header></app-inner-header>
+<app-common-banner [breadcrumbs]="breadcrumbs"></app-common-banner>
+
+<section class="section cart-section">
+	<div class="container">
+		<div class="row new-margin">
+			<div class="col-8 new-padding">
+				<div class="row mb-2">
+					<div class="col-12">
+						<div class="card bordered-long-card">
+							<div class="row">
+								<div class="col-auto">
+									<div class="card-img">
+											<img [src]="cardImg" alt="">
+									</div>
+								</div>
+								<div class="col pl-2">
+									<div class="card-content">
+										<h3>{{cardTitle}}</h3>
+										<h3>
+											<s>&#8377;{{price}}</s> <ins>&#8377;{{disPrice}}</ins>
+										</h3>
+										<p>you save: <span>&#8377;{{saving}}</span><span>({{savePercentage}} )</span></p>
+										<div class="d-flex price-detailing align-items-center position-relative">
+											<app-custom-select [data]="quantityTypeList" formControlName="quantityType" bindLabel="label" bindValue="value" placeholder="Qty: 1" appendTo=".price-detailing" customClass="quantity mr-2"></app-custom-select>
+											<app-custom-button btnClasses="btn transparent-btn" btnTitle="Move to Wishlist" btnIcon="icon-heart-o"></app-custom-button>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+
+							<app-custom-button btnClasses="btn close-btn" btnTitle="" btnIcon="icon-close" (click)="removeCart()"></app-custom-button>
+							<!-- <button class="close-btn">
+								<i class="icon-close"></i>
+							</button> -->
+						</div>
+					</div>
+				</div>
+				<div class="row mb-2">
+					<div class="col-12">
+						<div class="card bordered-long-card">
+							<div class="row">
+								<div class="col-auto">
+									<div class="card-img">
+											<img [src]="cardImg" alt="">
+									</div>
+								</div>
+								<div class="col pl-2">
+									<div class="card-content">
+										<h3>{{cardTitle}}</h3>
+										<h3>
+											<s>&#8377;{{price}}</s> <ins>&#8377;{{disPrice}}</ins>
+										</h3>
+										<p>you save: <span>&#8377;{{saving}}</span><span>({{savePercentage}} )</span></p>
+										<div class="d-flex price-detailing align-items-center position-relative">
+											<app-custom-select [data]="quantityTypeList" formControlName="quantityType" bindLabel="label" bindValue="value" placeholder="Qty: 1" appendTo=".price-detailing" customClass="quantity mr-2"></app-custom-select>
+											<app-custom-button btnClasses="btn transparent-btn" btnTitle="Move to Wishlist" btnIcon="icon-heart-o"></app-custom-button>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+
+							<app-custom-button btnClasses="btn close-btn" btnTitle="" btnIcon="icon-close" (click)="removeCart()"></app-custom-button>
+							<!-- <button class="close-btn">
+								<i class="icon-close"></i>
+							</button> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-4 new-padding">
+				<app-order-summary [visible]="visible"></app-order-summary>
+			</div>
+		</div>
+		
+	</div>
+</section>
+
+<section class="section trending-section pt-5 mt-5 mb-5 pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="page-title">
+          <h2>You might also like</h2>
+          <h3>From glam vibes to laid-back comfort, these sofas all have one thing in common—and that’s amazing value.</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5 pt-2">
+      <div class="col" *ngFor="let trend of trending">
+        <div class="trending-images">
+          <a href="#">
+            <img [src]="trend.imgUrl" class="img-fluid" alt="">
+          </a>
+        </div>
+        <div class="trending-text">
+          <a href="#">{{ trend.title }}</a>
+          <span class="price">&#8377; {{ trend.price }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

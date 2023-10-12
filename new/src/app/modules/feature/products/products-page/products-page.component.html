@@ -1,0 +1,143 @@
+<app-inner-header></app-inner-header>
+<app-common-banner [breadcrumbs]="breadcrumbs"></app-common-banner>
+
+<section class="section products-list-section">
+	<div class="container">
+		<div class="row justify-content-end align-items-center">
+			<div class="col-12 text-right">
+				<div class="d-flex align-items-center justify-content-end">
+					<div class="form-group d-flex align-items-center justify-content-end select-group mb-0">
+						<label>Sort By:</label>
+						<app-custom-select [data]="addressTypeList" formControlName="addressType" bindLabel="label" bindValue="value" placeholder="Best Match" appendTo=".select-group"></app-custom-select>
+					</div>
+					<div class="select-view pl-4">
+						<h3>View</h3>
+				        <mat-button-toggle-group [value]="toggleSelect" (change)="onValChange($event.value)">
+						  <mat-button-toggle value="grid">
+						    <mat-icon class="icon-grid"></mat-icon>
+						  </mat-button-toggle>
+						  <mat-button-toggle value="list">
+						    <mat-icon class="icon-list"></mat-icon>
+						  </mat-button-toggle>
+						</mat-button-toggle-group>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="row mt-4">
+			<div class="col-3 side-area">
+				<div class="list-area mb-5">
+					<h3 class="list-title">Product Brand</h3>
+					<ul class="list-unstyled mt-4">
+						<li *ngFor="let brand of brands">
+							<mat-checkbox [value]="brand.value"  (change)='filterByBrand($event,brand.id)'  >{{brand.label}}</mat-checkbox>
+						</li>
+					</ul>
+				</div>
+
+				<div class="list-area mb-5">
+					<h3 class="list-title">Discount Offer</h3>
+					<ul class="list-unstyled mt-4">
+						<li *ngFor="let discount of offers">
+							<mat-checkbox [value]="discount.value" [checked]="discount.checked">{{discount.label}}</mat-checkbox>
+						</li>
+					</ul>
+				</div>
+
+				<div class="list-area mb-5">
+					<h3 class="list-title">Rating Item</h3>
+					<ul class="list-unstyled mt-4 star-rating">
+						<li *ngFor="let rating of rate">
+							<mat-checkbox [value]="rating.value" [checked]="rating.checked">
+								<span *ngFor="let star of stars" class="star">
+				                	<i class="icon-star"></i>
+				              	</span>
+				              	<p>{{ rating.label }}</p>
+							</mat-checkbox>
+						</li>
+					</ul>
+				</div>
+
+				<div class="list-area mb-5">
+					<h3 class="list-title">Price Filter</h3>
+					<ul class="list-unstyled mt-4">
+						<li *ngFor="let prices of price">
+							<mat-checkbox [value]="prices.value" [checked]="prices.checked">{{prices.label}}</mat-checkbox>
+						</li>
+					</ul>
+
+					<div class="search-container d-flex align-items-center justify-content-end mt-3">
+			            <i class="icon-search-small"></i>
+			            <input type="text" class="form-control" placeholder="₹10.00" />
+			        </div>
+				</div>
+
+				<div class="list-area mb-5 color-filter">
+					<h3 class="list-title">Filter By Color</h3>
+					<ul class="list-unstyled mt-4 d-flex align-items-center flex-wrap">
+						<li *ngFor="let color of colors" class="mr-2">
+							<mat-checkbox [value]="color.value" [checked]="color.checked" [ngClass]="color.Class" class="colors">{{color.label}}</mat-checkbox>
+						</li>
+					</ul>
+				</div>
+				
+			</div>
+			<div class="col-9">
+				<ng-container *ngIf="grid">
+					<div class="grid-products row">
+						<div class="col-4 mb-5" *ngFor="let grid of filteredProduct">
+							<div class="grid-img">
+							<a href="#">
+								<img [src]="grid.imgUrl" alt="">
+								<div class="actions d-flex flex-column">
+									<app-custom-button btnClasses="btn action-btn mb-2" btnTitle="" btnIcon="icon-cart" (click)="navigateCart()"></app-custom-button>
+									<!-- <app-custom-button btnClasses="btn action-btn mb-2" btnTitle="" btnIcon="icon-zoom" (click)="zoom()"></app-custom-button> -->
+									<app-custom-button btnClasses="btn action-btn mb-2" btnTitle="" btnIcon="icon-zoom"></app-custom-button>
+									<app-custom-button btnClasses="btn action-btn mb-2" btnTitle="" btnIcon="icon-heart-o"></app-custom-button>
+								</div>
+							</a>
+						</div>
+						<div class="grid-text">
+							<h3>{{ grid.title }}</h3>
+							<ins>&#8377;{{ grid.discountPrice }}</ins> <s>&#8377;{{ grid.originalPrice }}</s> 
+						</div>
+						</div>
+					</div>
+					<!-- <div class="row mt-4 justify-content-end">
+						<div class="col-12">
+							<app-pagination></app-pagination>
+						</div>
+					</div> -->
+				</ng-container>
+				<ng-container *ngIf="!grid">
+					<div class="grid-products row mb-5" *ngFor="let grid of gridImg">
+						<div class="col-3">
+							<div class="grid-img">
+							<a href="#">
+								<img [src]="grid.imgUrl" alt="">
+							</a>
+						</div>
+						</div>
+						<div class="col-9">
+							<div class="grid-text">
+								<h3>{{ grid.title }}</h3>
+								<ins>&#8377;{{ grid.discountPrice }}</ins> <s>&#8377;{{ grid.originalPrice }}</s> 
+							</div>
+						</div>
+					</div>
+				</ng-container>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- <ng-template #callAPIDialog>
+    <h2 matDialogTitle>Hello dialog!</h2>
+    <mat-dialog-actions align="end">
+        <button mat-button matDialogClose="no">No</button>
+        <button mat-button matDialogClose="yes">Yes</button>
+    </mat-dialog-actions>
+</ng-template> -->
+

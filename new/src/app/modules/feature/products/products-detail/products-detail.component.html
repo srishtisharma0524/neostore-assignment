@@ -1,0 +1,105 @@
+<app-inner-header></app-inner-header>
+<app-common-banner [breadcrumbs]="breadcrumbs"></app-common-banner>
+
+<section class="section product-detail-section mt-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-5">
+				<div class="product-box">
+					<img [src]="productImg" class="img-fluid" alt="">
+				</div>
+			</div>
+
+			<div class="col-7">
+				<div class="product-detail mt-2">
+					<h3>{{productTitle}}</h3>
+					<span class="price">&#8377; {{productPrice}}</span>
+					<span class="small-text">Price incl. of all taxes</span>
+					<span *ngFor="let star of stars" class="star-common" [ngClass]="{'selected': (star <= selectedValue)}">
+				    <i class="icon-star"></i>
+				  </span>
+				  <div class="feature mt-3">
+				  	<span class="small-text">Brand: Studio Design</span>
+				  	<span class="small-text">Reference: demo_3</span>
+				  	<span class="small-text">In stock 191 Items</span>
+				  </div>
+				  <p class="desc">{{smallDescription}}</p>
+				  <hr class="common-border">
+				  <h5 class="heading">Choose Color</h5>
+				  <label class="radio-img" *ngFor="let color of colors">
+					  <input type="radio" name="colors" [value]="color.value" [checked]="color.checked">
+					  <img [src]="color.imgUrl">
+					</label>
+					<div class="row mt-4">
+						<div class="col-5 pr-0">
+							<app-custom-button btnClasses="btn btn-primary w-100" btnTitle="Add To Cart" (click)="createNewRelation()"></app-custom-button>
+						</div>
+						<div class="col-5 pl-1">
+							<div class="d-flex">
+								<div class="btn btn-counter">
+							    {{counter}}
+							  </div>
+							  <div class="">
+							  	<app-custom-button btnClasses="btn btn-inc d-block border-bottom-0" btnTitle="" (click)="increment()" btnIcon="icon-chevron-up"></app-custom-button>
+							  	<!-- <button (click)="increment()" class="btn btn-inc"> 
+								  	<i class="icon-chevron-up"></i>
+								  </button> -->
+								  <app-custom-button btnClasses="btn btn-inc d-block" btnTitle="" (click)="decrement()" btnIcon="icon-chevron-down"></app-custom-button>
+								  <!-- <button (click)="decrement()" class="btn btn-inc">
+								  	<i class="icon-chevron-down"></i>
+								  </button> -->
+							  </div>
+							</div>
+							
+						</div>
+					</div>
+
+					<ul class="list-unstyled d-flex align-items-center actions mt-4">
+						<li>
+							<i class="icon-wishlist"></i>
+							<a href="">Add to Wishlist</a>
+						</li>
+						<li>
+							<i class="icon-share"></i>
+							<a href="">Share this</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row mt-5">
+			<div class="col-12">
+				<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+				  <mat-tab [label]="tab.label" *ngFor="let tab of tabs">{{tab.content}}</mat-tab>
+				</mat-tab-group>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section trending-section pt-5 mt-5 mb-5 pb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="page-title">
+          <h2>You might also like</h2>
+          <h3>From glam vibes to laid-back comfort, these sofas all have one thing in common—and that’s amazing value.</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5 pt-2">
+      <div class="col" *ngFor="let trend of trending">
+        <div class="trending-images">
+          <a href="#">
+            <img [src]="trend.imgUrl" class="img-fluid" alt="">
+          </a>
+        </div>
+        <div class="trending-text">
+          <a href="#">{{ trend.title }}</a>
+          <span class="price">&#8377; {{ trend.price }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

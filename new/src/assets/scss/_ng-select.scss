@@ -1,0 +1,215 @@
+@import "node_modules/@ng-select/ng-select/scss/default.theme.scss";
+
+.ng-select{
+	.ng-select-container{
+		border: 1px solid var(--light-grey3)!important;
+		min-height: 40px!important;
+	}
+	&.ng-select-single{
+		.ng-select-container{
+			height: 40px!important;
+    		min-width: 149px!important;
+    		.ng-value-container{
+    			.ng-input{
+    				padding-left: 13px!important;
+    				padding-right: 45px!important;
+    			}
+    		}
+		}
+	}
+	.ng-value-container{
+		padding-left: 13px!important;
+		.ng-placeholder{
+			color: var(--grey5)!important;
+			font-size: 1rem;
+			font-weight: 400;
+		}
+	}
+	.ng-arrow-wrapper{
+		padding-right: 10px!important;
+		.ng-arrow{
+			border: 0!important;
+			height: 14px!important;
+    		width: 14px!important;
+			&:before{
+				content: '\e915';
+				font-family: 'icomoon';
+				position: absolute;
+				right: 0;
+				top: 0;
+				color: var(--light-purple);
+				font-size: 1rem;
+			}
+		}
+	}
+	&.ng-select-opened{
+		> .ng-select-container{
+			.ng-arrow{
+				&:before{
+					content: '\e916';
+					font-family: 'icomoon';
+					position: absolute;
+					right: 0;
+					top: 0;
+					color: var(--light-purple);
+					font-size: 1rem;
+				}
+			}
+		}
+	}
+  &.quantity{
+    .ng-select-container{
+      border: 0!important;
+      min-height: 31px!important;
+    }
+    &.ng-select-single{
+    .ng-select-container{
+      height: 31px!important;
+        min-width: 71px!important;
+        background: var(--grey6)!important;
+        border-radius: 2px!important;
+        .ng-value-container{
+          .ng-input{
+            padding-left: 13px!important;
+            padding-right: 45px!important;
+          }
+        }
+    }
+  }
+
+  .ng-value-container{
+    .ng-placeholder{
+      color: var(--dark2)!important;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .ng-value{
+      color: var(--dark2) !important;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+  }
+
+  .ng-arrow-wrapper{
+    
+    .ng-arrow{
+      height: 10px !important;
+      width: 14px !important;
+      &:before{
+        color: var(--dark2);
+        font-size: 0.7rem;
+      }
+    }
+  }
+  }
+}
+
+.ng-dropdown-panel {
+  .ng-dropdown-panel-items {
+    .ng-option {
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      font-family: $font-family;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: auto;
+      /* line-height: 3em; */
+      padding: 0 8px;
+      padding-top: 6px;
+      text-align: left;
+      text-decoration: none;
+      position: relative;
+      cursor: pointer;
+      outline: none;
+      display: flex !important;
+      flex-direction: row !important;
+      max-width: 100%;
+      align-items: center;
+      &.ng-option-selected,
+      &.ng-option-marked {
+        background-color: transparent;
+        color: var(--primary);
+
+        .ng-option-label {
+          color: var(--primary);
+          background: var(--grey-2);
+          border-radius: 5px!important;
+          display: inline-block;
+          flex-grow: 1;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 100%;
+          font-weight: 500 !important;
+          white-space: initial;
+          
+        }
+
+        &.ng-option-marked {
+          background-color: transparent;
+          color: var(--primary);
+         
+
+        }
+        &:hover{
+        	.ng-option-label{
+        		background-color: var(--light-grey2);
+        	}
+      	
+      }
+      }
+
+      &.ng-option-selected {
+        position: relative;
+
+        &:after {
+          content: '\e926'!important;
+          font-family: 'icomoon';
+          position: absolute;
+          top: 55%;
+          transform: translateY(-50%);
+          right: 7%;
+          color: var(--secondary);
+          font-size: 17px;
+        }
+
+        .ng-option-label {
+          font-weight: 600 !important;
+        }
+      }
+
+      .ng-option-label {
+        padding: 13px 16px;
+        white-space: break-spaces;
+        word-break: break-all;
+      }
+      &:last-child{
+          padding-bottom: 6px;
+        }
+    }
+  }
+  &.ng-select-bottom{
+    .ng-dropdown-panel-items{
+      .ng-option{
+        &:last-child{
+          padding-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+.price-detailing{
+  .ng-dropdown-panel{
+    .ng-dropdown-panel-items{
+      .ng-option{
+        .ng-option-label{
+          padding: 7px 5px !important;
+          font-size: 0.85rem !important;
+        }
+      }
+    }
+  }
+}

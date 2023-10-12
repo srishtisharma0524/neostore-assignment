@@ -1,0 +1,32 @@
+<!-- <mat-form-field [ngClass]="customClass">
+  <mat-label>Select</mat-label>
+  <mat-select>
+    <mat-option value="option1">Option 1</mat-option>
+    <mat-option value="option2">Option 2</mat-option>
+    <mat-option value="option3">Option 3</mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+<div class="ng-autocomplete">
+  <ng-select 
+    appearance="outline" 
+    [items]="dataObservable ? (dataObservable | async) : data" 
+    [bindLabel]="bindLabel" 
+    [bindValue]="bindValue"
+    [notFoundText]="noDataText"
+    [clearable]="multiSelect ? true : clearable"
+    [closeOnSelect]="multiSelect ? false : true"
+    [multiple]="multiSelect"
+    [readonly]="readonly"
+    [searchable]="false"
+    [virtualScroll]="virtualScroll"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [(ngModel)]="value"
+    (ngModelChange)="onChangeHandler($event)"
+    [ngClass]="customClass"
+    [appendTo]="appendTo"
+    (change)="changeEvent.emit($event)"
+    (clear)="onChangeHandler(null)">
+  </ng-select> 
+</div>

@@ -1,0 +1,16 @@
+<section class="banner">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<ul class="list-unstyled breadcrumbs d-flex align-items-center">
+					<li *ngFor="let crumbs of breadcrumbs">
+						<a href="javascript:void(0)" [routerLink]="crumbs.url" [ngClass]="crumbs.Class">{{crumbs.title}}</a>
+					</li>
+					<!-- <li>
+						<a class="active">Furniture List</a>
+					</li> -->
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>

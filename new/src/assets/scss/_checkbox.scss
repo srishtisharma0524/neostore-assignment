@@ -1,0 +1,123 @@
+.mat-checkbox-inner-container {
+  width: 18px !important;
+  height: 18px !important;
+  margin-right: 8px !important;
+}
+.mat-checkbox-frame {
+  border-color: var(--red) !important;
+}
+.mat-checkbox-checked {
+  &.mat-accent {
+    .mat-checkbox-background {
+      background-color: var(--primary) !important;
+    }
+  }
+}
+.mat-checkbox-layout {
+  .mat-checkbox-label {
+    font-size: 1.14rem;
+    font-weight: 500;
+    color: var(--grey5);
+    display: flex;
+    align-items: center;
+    p {
+      margin-bottom: 0;
+      font-size: 1rem;
+      color: var(--dark);
+      font-weight: 500;
+      margin-left: 4px;
+    }
+  }
+}
+.colors {
+  .mat-checkbox-frame {
+    border: 0 !important;
+  }
+  &.blue {
+    .mat-checkbox-frame {
+      background: var(--blue);
+    }
+  }
+  &.orange {
+    .mat-checkbox-frame {
+      background: var(--orange);
+    }
+  }
+  &.brown {
+    .mat-checkbox-frame {
+      background: var(--brown);
+    }
+  }
+  &.green {
+    .mat-checkbox-frame {
+      background: var(--dark-green);
+    }
+  }
+  &.cream {
+    .mat-checkbox-frame {
+      background: var(--cream);
+    }
+  }
+  &.mat-checkbox-checked {
+    &.blue {
+      &.mat-accent {
+        .mat-checkbox-background {
+          background-color: var(--blue) !important;
+        }
+      }
+    }
+    &.orange {
+      &.mat-accent {
+        .mat-checkbox-background {
+          background-color: var(--orange) !important;
+        }
+      }
+    }
+    &.brown {
+      &.mat-accent {
+        .mat-checkbox-background {
+          background-color: var(--brown) !important;
+        }
+      }
+    }
+    &.green {
+      &.mat-accent {
+        .mat-checkbox-background {
+          background-color: var(--dark-green) !important;
+        }
+      }
+    }
+    &.cream {
+      &.mat-accent {
+        .mat-checkbox-background {
+          background-color: var(--cream) !important;
+        }
+      }
+    }
+  }
+}
+
+.radio-img{
+  margin-bottom: 0;
+  margin-right: 10px;
+  img{
+    width: 62px;
+    height: 62px;
+    object-fit: cover;
+  }
+  [type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  + img{
+    cursor: pointer;
+  }
+  &:checked{
+    + img{
+      outline: 1px solid var(--primary-dark);
+      border-radius: 2px;
+    }
+  }
+}
+}

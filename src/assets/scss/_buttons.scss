@@ -1,0 +1,57 @@
+.btn {
+  font-family: $font-family;
+  font-weight: 500;
+  color: var(--white);
+  padding: 0.47rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 3.73px;
+  text-align: center;
+  border: 1px solid;
+  transition: all 0.6s ease;
+  &.btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+    border-radius: 2px;
+
+    &:hover {
+      background: var(--primary-hover) !important;
+      border-color: var(--primary-hover) !important;
+
+    }
+
+    &:active {
+      background-color: var(--primary) !important;
+      border-color: var(--primary) !important;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    &:focus {
+      background-color: var(--primary) !important;
+      border-color: var(--primary) !important;
+    }
+
+  }
+
+  &.btn-icon {
+    color: var(--black);
+    border: 0;
+    padding: 0;
+    font-size: 2rem;
+    transition: all 0.3s linear;
+    transform: translateX(0);
+
+    &:hover {
+      transform: translateX(20%);
+    }
+  }
+}
+
+.mat-menu-item {
+  height: auto !important;
+  line-height: inherit !important;
+  padding: 10px 16px !important;
+}

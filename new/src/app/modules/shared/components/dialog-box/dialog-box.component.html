@@ -1,0 +1,46 @@
+<div class="head">
+  <h2 mat-dialog-title>Product successfully added to your shopping cart</h2>
+  <button mat-button mat-dialog-close>
+    <i class="icon-close"></i>
+  </button>
+</div>
+
+<div mat-dialog-content>
+  <div class="product-content">
+    <div class="row">
+      <div class="col-auto">
+        <div class="product-cont-img">
+          <a href="">
+            <img src="../../../../../assets/images/product-detail-img.jpg" class="img-fluid" alt="">
+          </a>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="product-cont">
+          <h3>{{productTitle}}</h3>
+          <div class="item-details">
+            <h3>Item: {{item}}</h3>
+            <h3>Size: {{size}}</h3>
+            <h3 class="d-flex price-detailing align-items-center mb-4">
+              <span>Price: <s>&#8377;{{price}}</s> <ins>&#8377;{{disPrice}}</ins> </span>
+              <app-custom-select [data]="quantityTypeList" formControlName="quantityType" bindLabel="label" bindValue="value" placeholder="Qty: 1" appendTo=".price-detailing" customClass="quantity ml-3"></app-custom-select>
+            </h3>
+            <p>Threshold Delivery - additional cost per unit: ₹400.00</p>
+            <p>In-stock Usually ships in 1-7 business days.</p>
+            <p class="mt-4">*Price does not include shipping and processing, gift wrap, discounts or taxes</p>
+          </div>
+          <hr class="common-border-sec">
+          <div class="row">
+            <div class="col-7">
+              <app-custom-button btnClasses="btn btn-primary w-100" btnTitle="Checkout"></app-custom-button>
+            </div>
+            <div class="col-7 mt-3">
+              <app-custom-button btnClasses="btn btn-outline-primary w-100" btnTitle="Continue Shopping"></app-custom-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

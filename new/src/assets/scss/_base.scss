@@ -1,0 +1,47 @@
+html {
+  font-size: 14px;
+}
+
+*,
+*:focus,
+*:hover {
+  outline: none;
+}
+
+body {
+  font-size: 1rem;
+  font-family: $font-family;
+  color: var(--content);
+  font-weight: 500;
+  // line-height: 16px;
+  letter-spacing: 0.4px;
+  // letter-spacing: 2px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.container{
+  max-width: 1206px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9D9D9D;
+  // border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E0E0E0;
+}
+
+img {
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
